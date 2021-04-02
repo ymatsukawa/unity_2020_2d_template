@@ -31,7 +31,7 @@ public class TitleMainCanvas : MonoBehaviour
 
     public void OnClickExitButton()
     {
-        Debug.Log("OnClick Exit");
+        Application.Quit();
     }
     #endregion
 }
