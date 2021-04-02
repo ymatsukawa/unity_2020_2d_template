@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "MainGameProgress", menuName = "ScriptableObject/MainGameProgress")]
 public class MainGameProgress : ScriptableObject
 {
+    public GameStage CurrentStage;
     public bool IsStage1Cleared;
     public bool IsStage2Cleared;
     public bool IsStage3Cleared;
@@ -16,6 +17,7 @@ public class MainGameProgress : ScriptableObject
 
     private void OnEnable()
     {
+        this.CurrentStage = GameStage.AtTitle;
         this.IsStage1Cleared = false;
         this.IsStage2Cleared = false;
         this.IsStage3Cleared = false;

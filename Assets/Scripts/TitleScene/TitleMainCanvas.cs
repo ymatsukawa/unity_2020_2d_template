@@ -3,25 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TitleBehindScene : MonoBehaviour
+public class TitleMainCanvas : MonoBehaviour
 {
+    [SerializeField]
+    private Animator OptionShowAnimator;
     private string NextScene;
 
     private void Awake()
     {
         this.NextScene = "StageSelectScene";
     }
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
+    #region UI - MainCanvas
     public void OnClickNewGameButton()
     {
         SceneManager.LoadScene(this.NextScene);
@@ -32,13 +24,14 @@ public class TitleBehindScene : MonoBehaviour
         SceneManager.LoadScene(this.NextScene);
     }
 
-    public void OnClickConfigButton()
+    public void OnClickOptionButton()
     {
-        Debug.Log("OnClick Config");
+        this.OptionShowAnimator.SetTrigger("TriggerOptionShow");
     }
 
     public void OnClickExitButton()
     {
         Debug.Log("OnClick Exit");
     }
+    #endregion
 }

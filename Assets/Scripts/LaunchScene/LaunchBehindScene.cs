@@ -10,9 +10,6 @@ public class LaunchBehindScene : MonoBehaviour
         StartCoroutine("LoadNextSceneDelay", 3f);
     }
 
-    void Update()
-    { }
-
     IEnumerator LoadNextSceneDelay(float seconds)
     {
         yield return new WaitForSeconds(seconds);
