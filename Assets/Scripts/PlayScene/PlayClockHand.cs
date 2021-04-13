@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class PlayClockHand : MonoBehaviour
 {
-    private float RotationSpeed;
+    [SerializeField]
+    private HandClockStatus HandClockStatus;
 
     private void Awake()
     {
-        this.RotationSpeed = 5f;
+        this.HandClockStatus.Initialize();
     }
 
     // Start is called before the first frame update
@@ -23,14 +24,13 @@ public class PlayClockHand : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            this.RotationSpeed = -this.RotationSpeed;
+            this.HandClockStatus.SwitchRotation();
         }
-        this.gameObject.transform.Rotate(new Vector3(0, 0, this.RotationSpeed));
+        this.gameObject.transform.Rotate(new Vector3(0, 0, this.HandClockStatus.RotationSpeed));
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(other.collider.name + " collisioned");
+        this.HandClockStatus.SwitchRotation();
     }
-
 }
